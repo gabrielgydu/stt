@@ -338,7 +338,8 @@ def test_config(work):
     check("STT_CONFIG sets the path", config.path() == cfg_path)
     check("missing file -> empty config", config.load() == {})
     check("default provider is soniox", config.provider_name({}) == "soniox")
-    check("default languages", config.languages({}) == ["pt", "en", "de"])
+    check("default languages: none", config.languages({}) == [])
+    check("languages split/strip, order kept", config.languages({"languages": "pt, en ,,de"}) == ["pt", "en", "de"])
     check("keyterms split/strip", config.keyterms({"keyterms": "a, b ,,c"}) == ["a", "b", "c"])
     check("no key -> problem names the key and the file",
           stt.config_problem() == f"soniox_api_key is not set in {cfg_path}", stt.config_problem())

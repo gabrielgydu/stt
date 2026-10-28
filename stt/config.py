@@ -7,7 +7,7 @@ the language hints and the key terms.
     provider=soniox               # soniox (default) | assemblyai | fake (tests)
     soniox_api_key=...
     assemblyai_api_key=...
-    languages=pt,en,de            # hints, first = most likely (AssemblyAI: its fallback)
+    languages=en,pt               # hints, first = most likely (AssemblyAI: its fallback); none by default
     keyterms=Kubernetes, ...     # names and jargon to get right
 
 Plain key=value lines, '#' starts a comment. It is read fresh on every
@@ -17,7 +17,7 @@ call, so editing it takes effect without restarting anything.
 import os
 
 DEFAULT_PROVIDER = "soniox"
-DEFAULT_LANGUAGES = "pt,en,de"
+DEFAULT_LANGUAGES = ""  # no hints: any language
 
 
 def path():

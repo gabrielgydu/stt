@@ -45,7 +45,7 @@ stt check        # the configured provider, or what is missing
 | `provider` | `soniox` | `soniox`, `assemblyai`, or `fake` (for tests: no key, no network) |
 | `soniox_api_key` | | Soniox key |
 | `assemblyai_api_key` | | AssemblyAI key |
-| `languages` | `pt,en,de` | language hints, most likely first (Soniox: hints; AssemblyAI files: expected languages, the first is the fallback; AssemblyAI live: ignored) |
+| `languages` | (none: any language) | language hints such as `en,pt`, most likely first (Soniox: hints; AssemblyAI files: expected languages, the first is the fallback; AssemblyAI live: ignored) |
 | `keyterms` | | comma-separated names and jargon to get right, most important first (repeats dropped) |
 | `soniox_model` | `stt-async-v5` | Soniox async model (files) |
 | `assemblyai_model` | `universal-3-5-pro` | AssemblyAI model for files (Universal-2 as fallback) |
@@ -188,7 +188,7 @@ Both providers refuse to delete a job that is still processing; stt then says so
 
 AssemblyAI cannot delete an upload whose transcript was never created; it drops such uploads by itself.
 
-Unverified: with no language hints (`--languages ''`), AssemblyAI is sent detection without a fallback language, so silence may come back as a failed job (exit 4) instead of an empty success; with hints it completes empty.
+Unverified: with no language hints (the default, or `--languages ''`), AssemblyAI is sent detection without a fallback language, so silence may come back as a failed job (exit 4) instead of an empty success; with hints it completes empty.
 
 ## Live transcription (streaming)
 

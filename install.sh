@@ -25,7 +25,8 @@ if [[ ! -e "$CONFIG" ]]; then
 provider=soniox
 soniox_api_key=
 assemblyai_api_key=
-languages=pt,en,de
+# Language hints, most likely first (e.g. en,pt); empty = any language.
+languages=
 keyterms=
 EOF
   )
